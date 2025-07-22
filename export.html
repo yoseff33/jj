@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مولد الجداول الذكي - تصدير وطباعة</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>نظام الجداول الجامعية الذكي</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="input.html">إدخال البيانات</a></li>
+                <li><a href="schedule.html">الجداول</a></li>
+                <li><a href="export.html" class="active">تصدير وطباعة</a></li>
+                <li><a href="about.html">عن النظام</a></li>
+            </ul>
+        </nav>
+        <button id="darkModeToggle" class="theme-toggle-button">وضع الليل/النهار</button>
+    </header>
+    <main>
+        <section class="export-section">
+            <h2>تصدير وطباعة الجداول</h2>
+            <p>يمكنك من هنا تحميل الجداول كصور أو طباعتها مباشرة.</p>
+            <p class="important-note">
+                <i class="icon-info"></i>
+                ملاحظة: لطباعة جدول معين أو تصديره كصورة، يرجى الانتقال إلى صفحة <a href="schedule.html">الجداول</a> واختيار الجدول المطلوب، ثم استخدام أزرار الطباعة/التصدير المتاحة هناك. هذه الصفحة مخصصة لخيارات عامة والقوالب.
+            </p>
+
+            <div class="export-options-grid">
+                <div class="export-card">
+                    <h3>تحميل قوالب Excel للمستندات</h3>
+                    <p>هذه القوالب مخصصة لحفظ البيانات يدوياً كتوثيق وليست لإدخال البيانات في النظام.</p>
+                    <a href="templates/professors_template.xlsx" download="قالب_المدرسين.xlsx" class="button secondary-button">
+                        <i class="icon-download"></i> قالب المدرسين
+                    </a>
+                    <a href="templates/courses_template.xlsx" download="قالب_المقررات.xlsx" class="button secondary-button">
+                        <i class="icon-download"></i> قالب المقررات
+                    </a>
+                    <a href="templates/classrooms_template.xlsx" download="قالب_الغرف_الدراسية.xlsx" class="button secondary-button">
+                        <i class="icon-download"></i> قالب الغرف الدراسية
+                    </a>
+                </div>
+
+                <div class="export-card">
+                    <h3>الطباعة العامة</h3>
+                    <p>اطبع جميع الجداول المعروضة حاليًا في صفحة الجداول.</p>
+                    <button id="printAllSchedules" class="button primary-button">
+                        <i class="icon-print"></i> طباعة جميع الجداول
+                    </button>
+                    <p class="small-text">
+                        <i class="icon-warning"></i>
+                        قد لا تظهر التنسيقات بشكل مثالي عند طباعة جداول متعددة دفعة واحدة. يفضل طباعة كل جدول على حدة من صفحة الجداول للحصول على أفضل النتائج.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 نظام الجداول الجامعية الذكي. جميع الحقوق محفوظة.</p>
+    </footer>
+    <script src="js/data-storage.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/utils.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('printAllSchedules').addEventListener('click', () => {
+                // Navigate to schedule page and trigger print after a short delay
+                // This is a workaround, ideally, print functionality should be on the schedule page itself.
+                window.location.href = 'schedule.html?action=printAll';
+            });
+
+            // You would place static Excel template files in a 'templates' folder:
+            // university-scheduler/templates/professors_template.xlsx
+            // university-scheduler/templates/courses_template.xlsx
+            // university-scheduler/templates/classrooms_template.xlsx
+        });
+    </script>
+</body>
+</html>
