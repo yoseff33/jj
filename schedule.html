@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مولد الجداول الذكي - الجداول</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>نظام الجداول الجامعية الذكي</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="input.html">إدخال البيانات</a></li>
+                <li><a href="schedule.html" class="active">الجداول</a></li>
+                <li><a href="export.html">تصدير وطباعة</a></li>
+                <li><a href="about.html">عن النظام</a></li>
+            </ul>
+        </nav>
+        <button id="darkModeToggle" class="theme-toggle-button">وضع الليل/النهار</button>
+    </header>
+    <main>
+        <section class="schedule-display-section">
+            <h2>الجداول المولدة</h2>
+
+            <div class="schedule-controls">
+                <div class="control-group">
+                    <label for="scheduleViewType">عرض الجداول حسب:</label>
+                    <select id="scheduleViewType">
+                        <option value="professor">المدرس</option>
+                        <option value="section">الشعبة</option>
+                        <option value="room">الغرفة</option>
+                    </select>
+                </div>
+                <div class="control-group" id="professorSelectGroup">
+                    <label for="professorFilter">اختر المدرس:</label>
+                    <select id="professorFilter">
+                        <option value="all">جميع المدرسين</option>
+                        </select>
+                </div>
+                <div class="control-group" id="sectionSelectGroup" style="display: none;">
+                    <label for="sectionFilter">اختر الشعبة:</label>
+                    <select id="sectionFilter">
+                        <option value="all">جميع الشعب</option>
+                        </select>
+                </div>
+                <div class="control-group" id="roomSelectGroup" style="display: none;">
+                    <label for="roomFilter">اختر الغرفة:</label>
+                    <select id="roomFilter">
+                        <option value="all">جميع الغرف</option>
+                        </select>
+                </div>
+                <div class="control-group">
+                    <input type="text" id="scheduleSearch" placeholder="بحث باسم المقرر أو المدرس..." class="search-input">
+                </div>
+            </div>
+
+            <div id="scheduleOutput" class="schedule-output-container">
+                <p class="no-data-message">لا توجد جداول مولدة حالياً. يرجى إدخال البيانات وتوليد الجداول من صفحة إدخال البيانات.</p>
+            </div>
+
+            <div id="conflictAlerts" class="alert-container">
+                </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 نظام الجداول الجامعية الذكي. جميع الحقوق محفوظة.</p>
+    </footer>
+    <script src="js/data-storage.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/display.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadAllData(); // from data-storage.js
+            await loadGeneralSettings(); // from input-handlers.js, needed for time slots
+
+            // Populate filters and display schedules
+            await populateScheduleFilters(); // from display.js
+            await displaySchedules(); // from display.js
+
+            document.getElementById('scheduleViewType').addEventListener('change', populateScheduleFilters);
+            document.getElementById('professorFilter').addEventListener('change', displaySchedules);
+            document.getElementById('sectionFilter').addEventListener('change', displaySchedules);
+            document.getElementById('roomFilter').addEventListener('change', displaySchedules);
+            document.getElementById('scheduleSearch').addEventListener('input', displaySchedules); // Live search
+        });
+    </script>
+</body>
+</html>
