@@ -3,62 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مولد الجداول الذكي - الرئيسية</title>
-    <!-- ✅ المسار بعد نقل style.css بجانب index.html -->
-    <link rel="stylesheet" href="style.css">
+    <title>نظام جدولة المحاضرات الجامعية</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <h1>نظام الجداول الجامعية الذكي</h1>
-        <nav>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">نظام جدولة المحاضرات</a>
+            <div class="nav-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="data-entry.html">إدخال البيانات</a>
+                <a href="generate.html">توليد الجداول</a>
+                <a href="doctor-view.html">جداول الدكاترة</a>
+                <a href="help.html">المساعدة</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="main-section">
+            <h1>مرحبًا بك في نظام جدولة المحاضرات الجامعية</h1>
+            <p>
+                نظامك المتكامل لإدارة وتنظيم الجداول الدراسية للجامعة بذكاء وفعالية. صُمم هذا النظام لمساعدة مسؤولي الأقسام على إنشاء جداول دراسية معقدة بسهولة، مع مراعاة جميع المتغيرات والقيود الأكاديمية.
+            </p>
+            <p>
+                نظامنا يضمن لك:
+            </p>
             <ul>
-                <li><a href="index.html" class="active">الرئيسية</a></li>
-                <li><a href="input.html">إدخال البيانات</a></li>
-                <li><a href="schedule.html">الجداول</a></li>
-                <li><a href="export.html">تصدير وطباعة</a></li>
-                <li><a href="about.html">عن النظام</a></li>
+                <li><strong>توليد جداول ذكي:</strong> يقوم بتوليد الجداول تلقائيًا مع مراعاة تعارضات المواعيد، أوقات الدكاترة المتاحة، وسعة القاعات.</li>
+                <li><strong>مرونة في الإدخال:</strong> واجهات سهلة الاستخدام لإدخال بيانات الدكاترة، المقررات، الشعب، والقاعات.</li>
+                <li><strong>تعديل يدوي:</strong> إمكانية التعديل على الجداول بعد توليدها عبر السحب والإفلات أو التحرير المباشر.</li>
+                <li><strong>متجاوب بالكامل:</strong> يعمل بسلاسة على جميع الأجهزة، من الحواسيب المكتبية إلى الهواتف الذكية.</li>
+                <li><strong>تصميم عصري:</strong> بواجهة مستخدم سهلة وجذابة لتجربة استخدام ممتعة ومنظمة.</li>
             </ul>
-        </nav>
-        <button id="darkModeToggle" class="theme-toggle-button">وضع الليل/النهار</button>
-    </header>
-
-    <main>
-        <section class="hero-section">
-            <h2>أهلاً بك في نظام الجداول الجامعية الذكي!</h2>
-            <p>قم بإنشاء جداول حصص جامعية خالية من التعارضات بسهولة وفعالية.</p>
-            <p>نظامنا يساعدك على تنظيم جداول المحاضرات للمدرسين والطلاب والغرف الدراسية بذكاء، مع مراعاة جميع القيود.</p>
-            <a href="input.html" class="button primary-button">ابدأ الآن بإدخال البيانات</a>
-        </section>
-
-        <section class="features-section">
-            <h3>لماذا تختار نظامنا؟</h3>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h4><i class="icon-magic"></i> توليد تلقائي ذكي</h4>
-                    <p>يقوم النظام بتوليد جداول حصص متكاملة وخالية من أي تعارضات بشكل آلي.</p>
-                </div>
-                <div class="feature-card">
-                    <h4><i class="icon-data-input"></i> إدخال بيانات مرن</h4>
-                    <p>أضف معلومات المدرسين، المقررات، الغرف، والتفضيلات بسهولة من خلال واجهة المستخدم.</p>
-                </div>
-                <div class="feature-card">
-                    <h4><i class="icon-check"></i> مراعاة القيود بدقة</h4>
-                    <p>يضمن النظام عدم تداخل المحاضرات، وتجنب الحجوزات المزدوجة، واحترام أوقات الراحة.</p>
-                </div>
-                <div class="feature-card">
-                    <h4><i class="icon-export"></i> تصدير وطباعة سهلة</h4>
-                    <p>قم بتصدير جداولك كصور أو طباعتها مباشرة للاستخدام العملي.</p>
-                </div>
+            <div class="cta-buttons">
+                <a href="data-entry.html" class="cta-button">
+                    ابدأ الآن بإدخال البيانات
+                </a>
+                <a href="help.html" class="cta-button secondary">
+                    كيف أستخدم النظام؟
+                </a>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 نظام الجداول الجامعية الذكي. جميع الحقوق محفوظة.</p>
+    <footer class="footer">
+        <p>&copy; 2025 نظام جدولة المحاضرات الجامعية. جميع الحقوق محفوظة.</p>
     </footer>
 
-    <!-- ✅ روابط الجافاسكربت كما هي (المجلد js لم يتغيّر) -->
-    <script src="js/data-storage.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
